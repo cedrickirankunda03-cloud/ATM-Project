@@ -30,4 +30,18 @@
 - Test the main operations.
 - Document the program and its features.
 
+- ## 9. Innovative Features
+
+### Savings Goal Tracker
+- Allow users to define a savings target.
+- Display progress toward the target.
+- Update progress when deposits are made.
+
+### Smart Withdrawal Planner
+- Suggest a combination of available banknotes for a requested withdrawal.
+- Check whether the requested amount can be dispensed.
+- Display a helpful message if the amount cannot be provided.
+
+**Status:** Proposed. Final implementation depends on the course requirements and available development time.
+
 **Status:** Planned. Features will be confirmed against the course requirements.
