@@ -1,0 +1,46 @@
+# ATM Project — Final Report
+
+## 1. Introduction
+
+This project aims to develop an Automated Teller Machine (ATM) system using C++.
+
+## 2. Project Objectives
+
+- Provide a simple menu-driven banking application.
+- Support basic account operations.
+- Validate user input and handle errors.
+- Test the system's main functions.
+
+## 3. Requirements
+
+The system requirements will be documented in `requirements.md` and updated according to the teacher's instructions.
+
+## 4. Features
+
+The planned features include account authentication, balance inquiry, deposits, withdrawals, and other approved operations.
+
+## 5. System Architecture
+
+The application will be organized into source code, header files, unit tests, and documentation.
+
+## 6. Implementation
+
+This section will describe the implemented classes, functions, and technologies after development.
+
+## 7. Testing
+
+This section will document the unit tests, test results, and any issues discovered.
+
+## 8. Results and Discussion
+
+The completed functionality and its limitations will be described here.
+
+## 9. Conclusion
+
+The final conclusion will summarize the project outcomes and possible future improvements.
+
+## 10. References
+
+Add the course materials and other references used during development.
+
+**Status:** Initial report template. Implementation results will be added later.
