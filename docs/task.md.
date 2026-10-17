@@ -1,0 +1,37 @@
+# ATM Project — Development Tasks
+
+## Phase 1: Planning
+- [ ] Define project objectives.
+- [ ] Identify system requirements.
+- [ ] Finalize project features.
+- [ ] Design the system architecture.
+
+## Phase 2: Development
+- [ ] Design the ATM class and functions.
+- [ ] Implement account authentication.
+- [ ] Implement balance inquiry.
+- [ ] Implement cash deposits.
+- [ ] Implement cash withdrawals.
+- [ ] Implement transaction history.
+- [ ] Add money transfers if required.
+- [ ] Handle invalid inputs and errors.
+
+## Phase 3: Testing
+- [ ] Create unit tests.
+- [ ] Test valid and invalid operations.
+- [ ] Test balance calculations.
+- [ ] Fix discovered errors.
+
+## Phase 4: Documentation
+- [ ] Complete the README.
+- [ ] Document the architecture.
+- [ ] Configure Doxygen.
+- [ ] Prepare the project report.
+
+## Phase 5: Final Preparation
+- [ ] Build and run the application.
+- [ ] Verify the tests.
+- [ ] Review the GitHub repository.
+- [ ] Prepare the final demonstration.
+
+**Status:** Planning in progress.
