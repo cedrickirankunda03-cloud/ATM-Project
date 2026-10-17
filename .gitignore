@@ -1,0 +1,31 @@
+# Compiled programs
+*.exe
+*.obj
+*.o
+*.out
+*.dll
+*.so
+*.a
+*.lib
+
+# Build directories
+build/
+cmake-build-*/
+
+# Visual Studio and VS Code temporary files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Test and coverage output
+Testing/
+coverage/
+coverage-report/
+*.gcda
+*.gcno
+*.profraw
+
+# Operating system files
+.DS_Store
+Thumbs.db
