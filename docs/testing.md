@@ -15,6 +15,9 @@ This document describes how the ATM application will be tested.
 | T7 | Enter a negative amount | The amount is rejected |
 | T8 | Enter an invalid menu choice | An error message is displayed |
 | T9 | Review transaction history | Recorded transactions are displayed |
+| T10 | Deposit zero | The deposit is rejected |
+| T11 | Withdraw zero | The withdrawal is rejected |
+| T12 | Check transaction history after a deposit | The deposit appears in the history |
 
 
 ## 3. Testing Approach
@@ -26,6 +29,8 @@ This document describes how the ATM application will be tested.
 
 ## 4. Test Results
 Test results will be added after the tests have been implemented and executed.
+
+
 
 ## 5. Status
 **Planned:** Tests have not yet been executed.
