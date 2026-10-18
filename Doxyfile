@@ -1,0 +1,23 @@
+# Project identification
+PROJECT_NAME           = "ATM Project"
+PROJECT_BRIEF          = "Educational ATM simulation in C++"
+OUTPUT_DIRECTORY       = docs/generated
+
+# Source files
+INPUT                  = src include
+RECURSIVE              = YES
+FILE_PATTERNS          = *.h *.hpp *.cpp
+
+# Documentation settings
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+JAVADOC_AUTOBRIEF      = YES
+MARKDOWN_SUPPORT       = YES
+
+# Output formats
+GENERATE_HTML           = YES
+GENERATE_LATEX          = NO
+
+# Warnings
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED    = NO
