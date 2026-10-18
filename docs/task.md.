@@ -15,6 +15,11 @@
 - [ ] Implement transaction history.
 - [ ] Add money transfers if required.
 - [ ] Handle invalid inputs and errors.
+- [ ] Design the `ATM` class.
+- [ ] Design the `Account` class.
+- [ ] Design the `Transaction` class.
+- [ ] Define how the classes interact.
+- [ ] Implement and test the class relationships.
 
 ## Phase 3: Testing
 - [ ] Create unit tests.
