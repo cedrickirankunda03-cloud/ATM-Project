@@ -13,34 +13,66 @@ This project aims to develop an Automated Teller Machine (ATM) system using C++.
 
 ## 3. Requirements
 
-The system requirements will be documented in `requirements.md` and updated according to the teacher's instructions.
+The system requirements are documented in `requirements.md` and will be updated according to the teacher's instructions.
 
 ## 4. Features
 
-The planned features include account authentication, balance inquiry, deposits, withdrawals, and other approved operations.
+The planned features include account authentication, balance inquiry, deposits, withdrawals, transaction history, and other approved operations.
 
 ## 5. System Architecture
 
-The application will be organized into source code, header files, unit tests, and documentation.
+The application will be organized into source code, header files, unit tests, and documentation. The design will aim to separate the user interface from the ATM's business logic.
 
 ## 6. Implementation
 
 This section will describe the implemented classes, functions, and technologies after development.
 
-## 7. Testing
+## 7. Class Hierarchy
 
-This section will document the unit tests, test results, and any issues discovered.
+The ATM system will use object-oriented programming in C++. The planned classes will represent ATM operations, account information, and transaction records.
 
-## 8. Results and Discussion
+### Planned Classes
 
-The completed functionality and its limitations will be described here.
+- **ATM:** Coordinates ATM operations and interacts with the user interface.
+- **Account:** Stores account information and manages the balance.
+- **Transaction:** Represents deposits, withdrawals, and other supported transactions.
 
-## 9. Conclusion
+### Planned Relationships
+
+- The ATM class uses an Account object to perform account operations.
+- The Account class manages balance changes according to the system's rules.
+- Transaction objects represent operations that can be recorded in the transaction history.
+
+### Planned Class Relationship Diagram
+
+```text
+ATM
+ |
+ | uses
+ v
+Account
+ |
+ | records
+ v
+Transaction
+```
+
+**Note:** This is a preliminary design, not an inheritance hierarchy. The final classes and relationships will be adjusted to match the implemented code and the teacher's requirements.
+
+## 8. Testing
+
+This section will document the unit tests, test results, and any issues discovered after implementation.
+
+## 9. Results and Discussion
+
+The completed functionality, test results, and limitations will be described here after development.
+
+## 10. Conclusion
 
 The final conclusion will summarize the project outcomes and possible future improvements.
 
-## 10. References
+## 11. References
 
 Add the course materials and other references used during development.
 
-**Status:** Initial report template. Implementation results will be added later.
+**Status:** Initial report template. Implementation and testing results will be added later.
