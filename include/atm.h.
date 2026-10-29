@@ -1,1 +1,25 @@
+#ifndef ATM_H
+#define ATM_H
+
+#include<string>
+include<vector>
+
+class ATM
+{
+private:
+std:string correctPIN;
+double balance;
+std::vector<std::string>transactions;
+
+public:
+ATM(const std:string& pin, double initiaBalance);
+bool authenticate(const;
+std::string& enteredPIN) const;
+double getBalance() const;
+bool deposit(double amount);
+bool withdraw(double amount);
+void showTransactions() const;
+};
+#endif
+
 
