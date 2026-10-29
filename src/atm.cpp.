@@ -1,1 +1,16 @@
+#include "atm.h"
+ATM::ATM(const std::strind& pin,double initialBalance)
+:correctPIN(Pin),
+balance(initialBalance >= 0 ?
+initialBalance :0.0)
+{
+}
+bool ATM::authenticate(const std;& enteredpin) const
+{
+return enteredPIN == correctPIN;
+}
+double ATM::getBalance()const
+{
+return balance;
+}
 
