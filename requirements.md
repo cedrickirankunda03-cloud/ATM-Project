@@ -66,6 +66,23 @@ The system shall allow customers to select between supported account types, such
 
 ## FR25 – Transaction Validation
 The system shall validate transaction amounts and account details before processing deposits, withdrawals, and transfers.
+## FR26 – Voice Assistant
+The system shall provide a voice assistant that communicates with customers through spoken messages during ATM operations.
+
+## FR27 – Spoken Transaction Notifications
+The system shall announce the results of important ATM operations, including successful deposits, withdrawals, and transfers.
+
+## FR28 – Spoken Balance Information
+The system shall allow customers to hear their current account balance through voice output.
+
+## FR29 – Card Removal Reminder
+The system shall remind customers to take their bank card before the ATM session ends.
+
+## FR30 – Repeated Card Reminder
+The system shall repeat the card removal reminder if the customer has not confirmed card removal.
+
+## FR31 – Voice Session Completion
+The system shall provide a spoken goodbye message when the ATM session ends.
 
 ## 3. Non-Functional Requirements
 
