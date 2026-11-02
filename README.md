@@ -6,7 +6,7 @@ This project is an educational Automated Teller Machine (ATM) simulation develop
 ## Objectives
 - Practice object-oriented programming in C++.
 - Implement basic ATM operations.
-- Validate user input and handle errors.
+- Validate user input and handle errors.]
 - Test the program using automated unit tests.
 - Maintain clear project documentation.
 
@@ -39,7 +39,10 @@ This project is an educational Automated Teller Machine (ATM) simulation develop
 - Transaction validation
 - Automated unit testing with GoogleTest
 
-Additional features, including money transfers, will depend on the teacher's requirements.
+ - **Smart Voice Assistant & Card Reminder System:**
+ - Provides spoken ATM guidance, transaction notifications, balance announcements, card removal reminders, and a goodbye message.
+
+
 
 ## Project Structure
 - `src/` — C++ source code.
