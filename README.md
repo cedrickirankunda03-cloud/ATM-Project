@@ -18,6 +18,26 @@ This project is an educational Automated Teller Machine (ATM) simulation develop
 - Input validation.
 - Savings Goal Tracker (proposed).
 - Smart Withdrawal Planner (proposed).
+- ## Features
+
+- PIN authentication
+- Balance inquiry
+- Cash deposits and withdrawals
+- Money transfers between accounts
+- Account information display
+- Transaction history
+- Mini statement showing the five most recent transactions
+- PIN change
+- Transaction receipt generation
+- Voice guidance and spoken notifications
+- Bank card removal reminders
+- Language selection
+- PIN attempt limit
+- Daily withdrawal limit
+- ATM cash availability simulation
+- Support for savings and current accounts
+- Transaction validation
+- Automated unit testing with GoogleTest
 
 Additional features, including money transfers, will depend on the teacher's requirements.
 
