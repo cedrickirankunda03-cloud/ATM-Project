@@ -36,7 +36,11 @@ add_executable(ATMTests
 
 target_include_directories(ATMTests PRIVATE include)
 
-target_link_libraries(ATMTests PRIVATE GTest::gtest_main)
+target_link_libraries(ATMTests PRIVATE
+    GTest::gtest_main
+)
 
+# Automatically discover GoogleTest test cases
 include(GoogleTest)
+
 gtest_discover_tests(ATMTests)
