@@ -38,6 +38,10 @@ set(TEST_SOURCES
 )
 
 add_executable(ATM_Tests ${TEST_SOURCES})
+
+# Include this line from Nathan so tests find the headers
+target_include_directories(ATM_Tests PRIVATE include)
+
 target_link_libraries(ATM_Tests PRIVATE GTest::gtest_main)
 
 # 7. Register tests with CTest

@@ -1,14 +1,57 @@
+
 #include "atm.h"
 #include <iostream>
 
-ATM::ATM() {
-    voice = std::make_unique<EnglishVoice>();
-    currentBalance = 500.0; // Temporary fake balance
+// --- Nathan's Code: The Bank Core ---
+ATM::ATM(const std::string& pin, double initialBalance)
+    : correctPIN(pin),
+      balance(initialBalance >= 0 ? initialBalance : 0.0)
+{
+    voice = std::make_unique<EnglishVoice>(); // Your voice system starts here
 }
 
+bool ATM::authenticate(const std::string& enteredPIN) const
+{
+    return enteredPIN == correctPIN;
+}
+
+double ATM::getBalance() const
+{
+    return balance;
+}
+
+bool ATM::deposit(double amount)
+{
+    if (amount <= 0) return false;
+    balance += amount;
+    transactions.push_back("Deposit: +" + std::to_string(amount));
+    return true;
+}
+
+bool ATM::withdraw(double amount)
+{
+    if (amount <= 0 || amount > balance) return false;
+    balance -= amount;
+    transactions.push_back("Withdrawal: -" + std::to_string(amount));
+    return true;
+}
+
+void ATM::showTransactions() const
+{
+    if (transactions.empty()) {
+        std::cout << "No transactions yet.\n";
+        return;
+    }
+    std::cout << "\nTransaction History:\n";
+    for (const std::string& transaction : transactions) {
+        std::cout << transaction << '\n';
+    }
+}
+
+// --- Your Code: The ATM Interface ---
 void ATM::start() {
     voice->speakWelcome();
-    std::cout << "\n[System]: Account loaded: Cedrick (Balance: $" << currentBalance << ")\n";
+    std::cout << "\n[System]: Account loaded. (Balance: $" << getBalance() << ")\n";
 
     bool sessionActive = true;
 
@@ -25,7 +68,7 @@ void ATM::start() {
         int choice = Validator::getValidInt("Enter choice: ", 1, 5);
 
         if (choice == 1) {
-            voice->speakBalance(currentBalance);
+            voice->speakBalance(getBalance()); // Now uses Nathan's balance
         } 
         else if (choice == 2) {
             handleDeposit();
@@ -49,21 +92,25 @@ void ATM::start() {
 
 void ATM::handleDeposit() {
     double amount = Validator::getValidAmount("Enter deposit amount: $");
-    // Later: account.deposit(amount);
-    currentBalance += amount;
-    std::cout << "Success! Deposited $" << amount << "\n";
-    voice->speakBalance(currentBalance);
+    
+    // Call Nathan's deposit function!
+    if (deposit(amount)) {
+        std::cout << "Success! Deposited $" << amount << "\n";
+        voice->speakBalance(getBalance());
+    } else {
+        std::cout << "Error: Invalid deposit amount.\n";
+    }
 }
 
 void ATM::handleWithdraw() {
     double amount = Validator::getValidAmount("Enter withdraw amount: $");
-    // Later: if (account.withdraw(amount)) ...
-    if (amount > currentBalance) {
-        voice->speakWithdrawFail();
-    } else {
-        currentBalance -= amount;
+    
+    // Call Nathan's withdraw function!
+    if (withdraw(amount)) {
         voice->speakWithdrawSuccess(amount);
-        std::cout << "Remaining Balance: $" << currentBalance << "\n";
+        std::cout << "Remaining Balance: $" << getBalance() << "\n";
+    } else {
+        voice->speakWithdrawFail();
     }
 }
 
