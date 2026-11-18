@@ -1,67 +1,130 @@
-
 #include "atm.h"
 #include <iostream>
 
-// Create an ATM with a PIN and starting balance
+// ==========================================
+// NATHAN'S CODE: The Bank Core (Math & Data)
+// ==========================================
+
 ATM::ATM(const std::string& pin, double initialBalance)
     : correctPIN(pin),
       balance(initialBalance >= 0 ? initialBalance : 0.0)
 {
+    // Cedrick's Voice setup
+    voice = std::make_unique<EnglishVoice>();
 }
 
-// Check whether the entered PIN is correct
 bool ATM::authenticate(const std::string& enteredPIN) const
 {
     return enteredPIN == correctPIN;
 }
 
-// Return the current account balance
 double ATM::getBalance() const
 {
     return balance;
 }
 
-// Add money to the account
 bool ATM::deposit(double amount)
 {
-    if (amount <= 0)
-    {
-        return false;
-    }
-
+    if (amount <= 0) return false;
+    
     balance += amount;
     transactions.push_back("Deposit: +" + std::to_string(amount));
-
     return true;
 }
 
-// Withdraw money from the account
 bool ATM::withdraw(double amount)
 {
-    if (amount <= 0 || amount > balance)
-    {
-        return false;
-    }
-
+    if (amount <= 0 || amount > balance) return false;
+    
     balance -= amount;
     transactions.push_back("Withdrawal: -" + std::to_string(amount));
-
     return true;
 }
 
-// Display transaction history
 void ATM::showTransactions() const
 {
-    if (transactions.empty())
-    {
+    if (transactions.empty()) {
         std::cout << "No transactions yet.\n";
         return;
     }
-
     std::cout << "\nTransaction History:\n";
-
-    for (const std::string& transaction : transactions)
-    {
+    for (const std::string& transaction : transactions) {
         std::cout << transaction << '\n';
     }
+}
+
+// ==========================================
+// CEDRICK'S CODE: The ATM Interface & Voice
+// ==========================================
+
+void ATM::start() {
+    voice->speakWelcome();
+    std::cout << "\n[System]: Account loaded. (Balance: $" << getBalance() << ")\n";
+
+    bool sessionActive = true;
+
+    while (sessionActive) {
+        std::cout << "\n==============================\n";
+        std::cout << "          ATM MENU            \n";
+        std::cout << "==============================\n";
+        std::cout << "1. Check Balance\n";
+        std::cout << "2. Deposit\n";
+        std::cout << "3. Withdraw\n";
+        std::cout << "4. Change Language (English/French)\n";
+        std::cout << "5. Exit\n";
+
+        int choice = Validator::getValidInt("Enter choice: ", 1, 5);
+
+        if (choice == 1) {
+            voice->speakBalance(getBalance()); 
+        } 
+        else if (choice == 2) {
+            handleDeposit();
+        } 
+        else if (choice == 3) {
+            handleWithdraw();
+        } 
+        else if (choice == 4) {
+            handleLanguageChange();
+        } 
+        else if (choice == 5) {
+            sessionActive = false;
+        }
+    }
+
+    std::cout << "\n[System]: Please take your bank card.\n";
+    Validator::getValidInt("Press 1 to confirm you have taken your card: ", 1, 1);
+    voice->speakGoodbye();
+}
+
+void ATM::handleDeposit() {
+    double amount = Validator::getValidAmount("Enter deposit amount: $");
+    if (deposit(amount)) {
+        std::cout << "Success! Deposited $" << amount << "\n";
+        voice->speakBalance(getBalance());
+    } else {
+        std::cout << "Error: Invalid deposit amount.\n";
+    }
+}
+
+void ATM::handleWithdraw() {
+    double amount = Validator::getValidAmount("Enter withdraw amount: $");
+    if (withdraw(amount)) {
+        voice->speakWithdrawSuccess(amount);
+        std::cout << "Remaining Balance: $" << getBalance() << "\n";
+    } else {
+        voice->speakWithdrawFail();
+    }
+}
+
+void ATM::handleLanguageChange() {
+    std::cout << "1. English\n2. French\n";
+    int lang = Validator::getValidInt("Select language: ", 1, 2);
+    
+    if (lang == 1) {
+        voice = std::make_unique<EnglishVoice>();
+    } else {
+        voice = std::make_unique<FrenchVoice>();
+    }
+    voice->speakWelcome();
 }
