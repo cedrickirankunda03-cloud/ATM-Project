@@ -1,78 +1,58 @@
 # ATM Project — Final Report
 
 ## 1. Introduction
-
-This project aims to develop an Automated Teller Machine (ATM) system using C++.
+This project is a fully functional Automated Teller Machine (ATM) system developed in C++. It simulates a real-world banking interface, allowing users to authenticate, manage their funds, and interact with a secure, multi-language user interface.
 
 ## 2. Project Objectives
-
-- Provide a simple menu-driven banking application.
-- Support basic account operations.
-- Validate user input and handle errors.
-- Test the system's main functions.
+* Provide a simple, menu-driven banking application.
+* Support core account operations (deposits, withdrawals, balance inquiry).
+* Validate user input to prevent crashes and handle errors safely.
+* Demonstrate practical use of OOP, STL, and C++ Templates.
+* Test the system's main functions using unit tests and CI/CD.
 
 ## 3. Requirements
+All 31 functional requirements (FR1-FR31) and non-functional requirements have been documented in `requirements.md`. The final implementation successfully addresses the core requirements (authentication, transactions, validation) and several advanced features (voice guidance, language selection, OOP design).
 
-The system requirements are documented in `requirements.md` and will be updated according to the teacher's instructions.
-
-## 4. Features
-
-The planned features include account authentication, balance inquiry, deposits, withdrawals, transaction history, and other approved operations.
+## 4. Features (Implemented)
+* **Security:** PIN authentication and input validation.
+* **Transactions:** Deposits, withdrawals, and balance inquiries.
+* **Multi-Language Voice Guidance:** An OOP-based voice assistant that speaks to the user in English or French.
+* **Safe UI:** A robust menu loop that catches invalid inputs (e.g., typing letters instead of numbers) without crashing.
+* **Session Management:** Card removal reminders and a proper logout sequence.
 
 ## 5. System Architecture
-
-The application will be organized into source code, header files, unit tests, and documentation. The design will aim to separate the user interface from the ATM's business logic.
+The application is organized into a clean directory structure (`include/`, `src/`, `tests/`, `docs/`). The design strictly separates the user interface (menus, voice) from the business logic (account math, transactions).
 
 ## 6. Implementation
-
-This section will describe the implemented classes, functions, and technologies after development.
+The project was built using **C++17** and **CMake**. We utilized:
+* **GitHub Actions** for continuous integration (automated builds and tests).
+* **Google Test** for unit testing.
+* **Doxygen** for code documentation.
 
 ## 7. Class Hierarchy
-
-The ATM system will use object-oriented programming in C++. The planned classes will represent ATM operations, account information, and transaction records.
-
-### Planned Classes
-
-- **ATM:** Coordinates ATM operations and interacts with the user interface.
-- **Account:** Stores account information and manages the balance.
-- **Transaction:** Represents deposits, withdrawals, and other supported transactions.
-
-### Planned Relationships
-
-- The ATM class uses an Account object to perform account operations.
-- The Account class manages balance changes according to the system's rules.
-- Transaction objects represent operations that can be recorded in the transaction history.
-
-### Planned Class Relationship Diagram
-
-```text
-ATM
- |
- | uses
- v
-Account
- |
- | records
- v
-Transaction
-```
-
-**Note:** This is a preliminary design, not an inheritance hierarchy. The final classes and relationships will be adjusted to match the implemented code and the teacher's requirements.
+The system uses Object-Oriented Programming (OOP).
+* **ATM Class:** Acts as the main controller, handling the menu loop and calling the bank core.
+* **VoiceGuidance (Abstract Base Class):** Defines the interface for spoken messages.
+* **EnglishVoice / FrenchVoice:** Derived classes that implement polymorphic voice behavior.
+* **Validator Class:** A static utility class for safe input handling.
+* **Repository<T> (Template Class):** A generic template used to demonstrate modern C++ data storage.
+* **Account Logic:** Handles the balance, deposits, and withdrawals.
 
 ## 8. Testing
-
-This section will document the unit tests, test results, and any issues discovered after implementation.
+Unit testing is implemented using Google Test. Tests are stored in the `tests/` directory and run via `ctest`. The tests verify:
+* Valid and invalid PIN authentication.
+* Successful deposits and withdrawals.
+* Rejection of invalid or negative amounts.
+* The CI pipeline automatically runs these tests on every push to `main`. All tests pass with a 100% success rate.
 
 ## 9. Results and Discussion
-
-The completed functionality, test results, and limitations will be described here after development.
+The completed system runs flawlessly. Users can start the ATM, hear the welcome voice, navigate menus safely, change languages, and perform transactions. The architecture is highly modular. 
+*Limitations:* The system currently stores data in memory rather than a persistent database.
 
 ## 10. Conclusion
-
-The final conclusion will summarize the project outcomes and possible future improvements.
+The ATM project successfully met all technical constraints, including the use of OOP, STL, and C++ templates. By dividing the work by architecture (UI vs. Core) and using feature branches, we successfully managed a complex Git repository, resolved merge conflicts, and delivered a tested, high-quality C++ application.
 
 ## 11. References
-
-Add the course materials and other references used during development.
-
-**Status:** Initial report template. Implementation and testing results will be added later.
+* Course materials on C++ OOP and STL.
+* GitHub Actions and Google Test official documentation.
+* CMake official documentation.
