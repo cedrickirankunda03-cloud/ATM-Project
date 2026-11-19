@@ -1,4 +1,4 @@
-# Project identification
+ # Project identification
 PROJECT_NAME           = "ATM Project"
 PROJECT_BRIEF          = "Educational ATM simulation in C++"
 OUTPUT_DIRECTORY       = docs/generated

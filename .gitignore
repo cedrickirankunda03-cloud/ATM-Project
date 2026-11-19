@@ -29,3 +29,7 @@ coverage-report/
 # Operating system files
 .DS_Store
 Thumbs.db
+# Generated documentation and build files
+docs/generated/
+out/
+CMakeSettings.json

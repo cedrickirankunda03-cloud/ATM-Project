@@ -16,6 +16,9 @@ set(MAIN_SOURCES
     src/main.cpp
     src/atm.cpp
     src/VoiceGuidance.cpp
+    src/Account.cpp
+    src/Transaction.cpp
+    src/Bank.cpp
 )
 
 add_executable(ATM_Project ${MAIN_SOURCES})
@@ -35,6 +38,10 @@ set(TEST_SOURCES
     tests/test_atm.cpp
     src/atm.cpp              # <--- ADDED THIS
     src/VoiceGuidance.cpp    # <--- ADDED THIS
+    tests/test_account.cpp
+    src/Account.cpp
+    src/Transaction.cpp
+    src/Bank.cpp
 )
 
 add_executable(ATM_Tests ${TEST_SOURCES})
